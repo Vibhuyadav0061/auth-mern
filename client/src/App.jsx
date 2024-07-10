@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Photos from './pages/Photos'
 import Login from './pages/Login'
+import SignIn from './pages/SignIn'
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path='/about' element={<About/>}/>
       <Route path='/photos' element={<Photos/>}/>
       <Route path='/login' element={<Login/>}/>
+      <Route path='/sign-in' element={<SignIn/>}/>
     </Routes>
     </BrowserRouter>
   )
