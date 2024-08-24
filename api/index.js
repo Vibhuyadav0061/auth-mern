@@ -13,21 +13,22 @@ mongoose.connect(process.env.MONGO).then(()=>{
 })
 const app =  express();
 app.use(express.json());
-app.listen(3000,(port)=>{
-    console.log('server listen at port 3000');
+const PORT = process.env.PORT || 3000 ;
+app.listen(PORT,()=>{
+    console.log(`server listen at port ${PORT}`);
     
 });
 
 app.use('/api/user', userRoutes);
 app.use('/api/auth', authRoutes);
 
-app.use((err, req , res , next)=>{
-const statusCode = err.statusCode || 500;
-const message = err.merrage || "Internal server Error";
-return res.status(statusCode).json({
-    success : "false",
-    message,
-    statusCode,
-})
+// app.use((err, req , res , next)=>{
+// const statusCode = err.statusCode || 500;
+// const message = err.merrage || "Internal server Error";
+// return res.status(statusCode).json({
+//     success : "false",
+//     message,
+//     statusCode,
+// })
 
-})
+// })

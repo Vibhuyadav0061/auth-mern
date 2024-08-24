@@ -9,7 +9,7 @@ function Headers() {
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/about'>About</Link></li>
         <li><Link to='/photos'>Photos</Link></li>
-        <li className='border-2 rounded-3xl px-2 bg-red-400'><Link to='/login' >Login/Signup</Link></li>
+        <li className='border-2 rounded-3xl px-2 bg-red-400'><Link to='/signup' >Login/Signup</Link></li>
       </ul>
      </div>
      

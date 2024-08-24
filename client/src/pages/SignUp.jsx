@@ -2,13 +2,23 @@ import React from 'react'
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-function Login() {
-  const [formData , setformData] = ({});
+function SignUp() {
+  const [formData , setformData] = useState({});
   const handleChange = (e)=>{
     setformData({...formData , [e.target.id]:e.target.value})
   }
   const handleSubmit = async ()=>{
-    e.preventDefault();
+    e.preventDefault(); // it prevents regfres page on submit
+    const res = await fetch('/api/auth/signup' , {
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json',
+      },
+      body: JSON.stringify(formData),
+    })
+    const Data = await res.json();
+    console.log(Data) 
+    
   }
   return (
     <div className='p-3 max-w-lg mx-auto'>
@@ -21,14 +31,14 @@ function Login() {
       </form>
       <div className='flex gap-2'>
         Have an account ? 
-        <Link to='/sign-in'><span className='text-blue-600'>Sign In</span></Link>
+        <Link to='/signin'><span className='text-blue-600'>Sign In</span></Link>
 
       </div>
     </div>
   )
 }
 
-export default Login;
+export default SignUp;
 
 
 
